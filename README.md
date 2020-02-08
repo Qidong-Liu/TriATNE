@@ -22,9 +22,9 @@ The code has been tested under Python 3.7.5, with the following packages install
 ## Data
 
 (1) TriGAN expect an edgelist for the input network, i.e.,
->node1   node2
+>node1 node2 1
 
->node1   node3
+>node1 node3 1
 
 >...
 
