@@ -27,23 +27,23 @@ CP = False                      #Continue training from the checkpoint
 workdir = os.path.abspath('.')  #workspace
 
 ######Classification Input
-TRAIN_INPUT_FILENAME = "D:/GAN/dataset/citeseer/cf/data_double_0.txt"
-TRAIN_LABEL_FILENAME = "D:/GAN/dataset/citeseer/cf/label_0.txt"
+TRAIN_INPUT_FILENAME = workdir + "/data/Citeseer_input.txt"
+TRAIN_LABEL_FILENAME = workdir + "/data/Citeseer_label.txt"
 format = 'blogcat'
 
 ######Link prediction Input
 split = False
 test_frac = 0.2
-FULL_FILENAME = 'D:/GAN/dataset/Cora/out.subelj_cora_cora'
+FULL_FILENAME = workdir + '/data/wiki-vote.txt'
 
-TRAIN_POS_FILENAME = 'D:/GAN/dataset/Cora/train_edges.txt'
-TRAIN_NEG_FILENAME = 'D:/GAN/dataset/Cora/train_edges_false.txt' # Optimal
+TRAIN_POS_FILENAME = workdir + '/data/wiki_train_pos.txt'
+TRAIN_NEG_FILENAME = workdir + '/data/wiki_train_neg.txt' # Optimal
 
-TEST_POS_FILENAME = "D:/GAN/dataset/wiki-vote/lp/test_edges_0.txt"
-TEST_NEG_FILENAME = "D:/GAN/dataset/wiki-vote/lp/test_edges_false_0.txt"
+TEST_POS_FILENAME = workdir + "/data/wiki_test_pos.txt"
+TEST_NEG_FILENAME = workdir + "/data/wiki_test_neg.txt"
 
 #####Output
-EMB_OUTPUT_FILENAME = workdir + "/emb/emb-gan13.txt"
-CONTEXT_OUTPUT_FILENAME = workdir + "/emb/context-gan13.txt"
+EMB_OUTPUT_FILENAME = workdir + "/emb/emb.txt"
+CONTEXT_OUTPUT_FILENAME = workdir + "/emb/context.txt"
 GEN_MODEL_BEST_FILE = workdir + '/model/gen_best.model'
 DIS_MODEL_BEST_FILE = workdir + '/model/dis_best.model'
