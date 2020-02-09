@@ -9,7 +9,7 @@ def Cross_val(emb_file, cv=5, comments='#'):
         exit('error: only label formats "cora" and "blogcat" are supported')
 
     print('reading {}...'.format(st.TRAIN_INPUT_FILENAME))
-    orig_graph = nx.read_edgelist(st.TRAIN_INPUT_FILENAME, nodetype=str, data=(('weight', int),), create_using=nx.DiGraph(), comments=comments, delimiter='\t')
+    orig_graph = nx.read_edgelist(st.TRAIN_INPUT_FILENAME, nodetype=str, create_using=nx.DiGraph(), comments=comments, delimiter='\t')
 
     print('reading {}...'.format(st.TRAIN_LABEL_FILENAME))
     if st.format == 'cora':
