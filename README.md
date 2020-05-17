@@ -1,5 +1,5 @@
 # TriGAN
- Source code for KDD 2020 paper "TriGAN: Tripartite Adversarial Learning for Graph Embeddings"
+ Source code for paper "TriGAN: Tripartite Adversarial Learning for Graph Embeddings"
 ## Requirements
 The code has been tested under Python 3.7.5, with the following packages installed (along with their dependencies):
 - tensorflow == 1.14.0
