@@ -1,5 +1,5 @@
-# TriGAN
- Source code for paper "TriGAN: Tripartite Adversarial Learning for Graph Embeddings"
+# TriATNE
+ Source code for paper "TriATNE: Tripartite Adversarial Training for Network Embeddings"
 ## Requirements
 The code has been tested under Python 3.7.5, with the following packages installed (along with their dependencies):
 - tensorflow == 1.14.0
@@ -17,11 +17,11 @@ The code has been tested under Python 3.7.5, with the following packages install
 - **model.py:** Define each modules of the model.
 - **PRE.py:** Train-test split for link prediction.
 - **settings.py:** Defines different hyperparameters here.
-- **TriGAN.py:** The main entrance of running.
+- **TriATNE.py:** The main entrance of running.
 - **utils.py:** Codes to load data, split data, prepare batches for training and write embeddings to files.
 ## Data
 
-(1) TriGAN expect an edgelist for the input network, i.e.,
+(1) TriATNE expect an edgelist for the input network, i.e.,
 >node1 node2 1
 
 >node1 node3 1
@@ -65,7 +65,7 @@ where N denotes the number of nodes and d denotes the embeddings' dimension. Eac
 
 ## Basic usage
 ### Classification
-We take the Citeseer dataset as an exampleand show how to perform classification tasks for TriGAN:
+We take the Citeseer dataset as an exampleand show how to perform classification tasks for TriATNE:
 
 (1) Modify the following parameters in settings.py:
 >TRAIN_INPUT_FILENAME = '/data/Citeseer_input.txt'
@@ -76,12 +76,12 @@ We take the Citeseer dataset as an exampleand show how to perform classification
 
 (2) Run the code by:
 
-```python TriGAN.py```
+```python TriATNE.py```
 
 (3) The learned embeddings will be stored in /emb/, and the evaluation results (micro F1 and macro F1) for embeddings will be printed on the screen for each epoch.
 
 ### Link Prediction
-We take the wiki-vote dataset as an exampleand show how to perform link prediction tasks for TriGAN:
+We take the wiki-vote dataset as an exampleand show how to perform link prediction tasks for TriATNE:
 
 (1) If you have split the dataset, please move directly to step 2. Otherwise, modify the following parameters in settings.py:
 >APP = 1
@@ -115,6 +115,6 @@ Note that splitting data can take a long time. Therefore, we recommend storing t
 
 (3) Run the code by:
 
-```python TriGAN.py```
+```python TriATNE.py```
 
 (4) The learned embeddings will be stored in /emb/, and the evaluation results (AUC and NDCG@k) for embeddings will be printed on the screen for each epoch.
