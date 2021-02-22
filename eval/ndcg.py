@@ -9,7 +9,7 @@ def ndcg_at_K(sess, model, test_positive, train_positive, nodes_set, k=20):
         if len(pred_list) < k:
             continue
 
-        pred_list_score = sess.run(model.G_pred_score, feed_dict={model.u: [node] * len(pred_list), model.v: pred_list})
+        pred_list_score = sess.run(model.S_pred_score, feed_dict={model.u: [node] * len(pred_list), model.v: pred_list})
         pred_score = zip(pred_list, pred_list_score)
         pred_score = sorted(pred_score, key=lambda x: x[1], reverse=True)
 
@@ -38,7 +38,7 @@ def ndcg_at_k(sess, model, query_pos_test, query_pos_train, query_url_feature, k
 
         pred_list_feature = [query_url_feature[query][url] for url in pred_list]
         pred_list_feature = np.asarray(pred_list_feature)
-        pred_list_score = sess.run(model.pred_score, feed_dict={model.pred_data: pred_list_feature})
+        pred_list_score = sess.run(model.S_pred_score, feed_dict={model.pred_data: pred_list_feature})
         pred_url_score = zip(pred_list, pred_list_score)
         pred_url_score = sorted(pred_url_score, key=lambda x: x[1], reverse=True)
 

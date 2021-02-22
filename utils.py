@@ -27,11 +27,12 @@ def load_edgelist(file, undirected=True):
     return train, nodes
 
 def split_data(file_in, file_out1, file_out2, file_out3, file_out4, frac=0.1):
-    G = nx.read_edgelist(file_in, nodetype=int, create_using=nx.DiGraph())
-    for edge in G.edges():
-        G[edge[0]][edge[1]]['weight'] = 1
+    #G = nx.read_edgelist(file_in, nodetype=int, create_using=nx.DiGraph())
+    G = nx.read_edgelist(file_in, nodetype=int, data=(('weight', int),), create_using=nx.DiGraph())
+    #for edge in G.edges():
+    #    G[edge[0]][edge[1]]['weight'] = 1
 
-    train_edges, train_edges_false, test_edges, test_edges_false = mask_test_edges(G, test_frac=frac, prevent_disconnect=True, verbose=True)
+    train_edges, train_edges_false, test_edges, test_edges_false = mask_test_edges(G, test_frac=frac, prevent_disconnect=False, verbose=True)
     np.savetxt(file_out1, train_edges, fmt='%d\t%d\t%d')
     np.savetxt(file_out2, train_edges_false, fmt='%d\t%d\t%d')
     np.savetxt(file_out3, test_edges, fmt='%d\t%d\t%d')

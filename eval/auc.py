@@ -2,8 +2,8 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 
 def AUC(sess, model, positive, negative):
-    score_pos = sess.run(model.D_pred_score, feed_dict={model.u: positive[:, 0], model.v: positive[:, 1], model.rate: 0})
-    score_neg = sess.run(model.D_pred_score, feed_dict={model.u: negative[:, 0], model.v: negative[:, 1], model.rate: 0})
+    score_pos = sess.run(model.P_pred_score, feed_dict={model.u: positive[:, 0], model.v: positive[:, 1]})
+    score_neg = sess.run(model.P_pred_score, feed_dict={model.u: negative[:, 0], model.v: negative[:, 1]})
 
     max_pos = np.max(score_pos)
     min_pos = np.min(score_pos)
@@ -30,8 +30,8 @@ def AUC(sess, model, positive, negative):
 
 def AUC2(sess, model, positive, negative):
 
-    score_pos = sess.run(model.G_pred_score, feed_dict={model.u: positive[:, 0], model.v: positive[:, 1]})
-    score_neg = sess.run(model.G_pred_score, feed_dict={model.u: negative[:, 0], model.v: negative[:, 1]})
+    score_pos = sess.run(model.S_pred_score, feed_dict={model.u: positive[:, 0], model.v: positive[:, 1]})
+    score_neg = sess.run(model.S_pred_score, feed_dict={model.u: negative[:, 0], model.v: negative[:, 1]})
 
     #preds_pos = 1./(1. + np.exp(-score_pos))
     #preds_neg = 1./(1. + np.exp(-score_neg))
